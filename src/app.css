@@ -551,6 +551,37 @@ tbody tr:hover {
   word-wrap: break-word;
 }
 
+/* Disclaimer Callout Box */
+.disclaimer-box {
+  background-color: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-left: 4px solid var(--warning);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+
+.disclaimer-box p {
+  margin-bottom: 0;
+}
+
+.disclaimer-box strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+@media (prefers-color-scheme: dark) {
+  .disclaimer-box {
+    background-color: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.4);
+    border-left-color: #fbbf24;
+  }
+}
+
 /* Help icon button */
 .help-icon {
   display: inline-flex;
