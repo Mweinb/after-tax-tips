@@ -217,6 +217,8 @@ label {
 input[type="number"],
 input[type="text"],
 input[type="month"],
+input[type="email"],
+textarea,
 select {
   width: 100%;
   padding: 0.75rem 1rem;
@@ -230,6 +232,7 @@ select {
 }
 
 input:focus,
+textarea:focus,
 select:focus {
   outline: none;
   border-color: var(--accent-primary);
@@ -513,6 +516,10 @@ tbody tr:hover {
 .how-to-link:hover {
   color: var(--accent-hover);
   text-decoration: underline;
+}
+
+.footer-sep {
+  margin: 0 0.75rem;
 }
 
 /* Modal Markdown Typography styling */

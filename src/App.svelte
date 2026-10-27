@@ -3,6 +3,7 @@
   import { marked } from 'marked';
   import { app } from './lib/store.svelte';
   import Modal from './components/Modal.svelte';
+  import FeedbackForm from './components/FeedbackForm.svelte';
   import MakeLadder from './routes/MakeLadder.svelte';
   import Specs from './routes/Specs.svelte';
   import LadderDisplay from './routes/LadderDisplay.svelte';
@@ -27,6 +28,7 @@
 
   let path = $state<Path>(currentPath());
   let howToOpen = $state(false);
+  let feedbackOpen = $state(false);
   const howToHtml = marked.parse(howTo, { async: false });
 
   const route = $derived(routes[path]);
@@ -83,9 +85,19 @@
   <a href="#how-to" class="how-to-link" onclick={(e) => { e.preventDefault(); howToOpen = true; }}>
     How to Use this App
   </a>
+  <span class="footer-sep">|</span>
+  <a href="#feedback" class="how-to-link" onclick={(e) => { e.preventDefault(); feedbackOpen = true; }}>
+    Leave Feedback
+  </a>
   <p>&copy; 2026 After-Tax TIPS Ladder Web App v3.0</p>
 </footer>
 
 <Modal bind:open={howToOpen}>
   <div class="markdown-body">{@html howToHtml}</div>
+</Modal>
+
+<Modal bind:open={feedbackOpen} small>
+  {#if feedbackOpen}
+    <FeedbackForm />
+  {/if}
 </Modal>
